@@ -112,7 +112,7 @@ const Register = () => {
     console.log(body);
     Axios({
       method: "POST",
-      url: "http://localhost:3020/account/register",
+      url: "https://ahlulquran.herokuapp.com/account/register",
       data: body
     }).then(res => {
 

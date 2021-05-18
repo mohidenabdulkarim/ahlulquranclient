@@ -18,7 +18,7 @@ export const Dashboard = () => {
 
   const fetchUsers = async () => {
     console.log("ERROR")
-    const allUsers = await Axios.get("http://localhost:3020/admin/allUsers");
+    const allUsers = await Axios.get("https://ahlulquran.herokuapp.com/admin/allUsers");
     console.log(allUsers.data.useres);
     return allUsers.data
   }
