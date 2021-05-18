@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 const Main = ({ users }: any) => {
   // const [users, setUsers] = useState(users);
   return (
@@ -38,10 +37,11 @@ const Main = ({ users }: any) => {
               <th>Date</th>
               <th>Teacher</th>
               <th>Course</th>
+              <th>Serial Number</th>
             </tr>
           </thead>
           <tbody>
-            {
+            { users !== undefined ?
               users.map((user: any, idx: any) => (
                 <tr key={idx}>
                   <td>{idx}</td>
@@ -53,9 +53,15 @@ const Main = ({ users }: any) => {
                   <td>{user.registeredDate}</td>
                   <td>{user.teacher}</td>
                   <td>{user.course}</td>
-
+                  <th>
+                    <button className="btn">Set</button>
+                  </th>
                 </tr>
+                
+                
               ))
+              :
+              <h5>No users registered yet !!</h5>
             }
           </tbody>
         </table>
