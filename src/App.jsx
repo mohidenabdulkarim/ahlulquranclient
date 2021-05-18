@@ -1,0 +1,22 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Dashboard } from "./components/admin/Dashboard";
+import Home from "./components/home_page/Home";
+import Login from "./components/Login";
+import WhatsAppWidget from 'react-whatsapp-widget'
+import 'react-whatsapp-widget/dist/index.css'
+const App = () => {
+  return (
+
+    <>
+      <WhatsAppWidget phoneNumber='XXXXXXXX' />
+      <Routes>
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='' element={<Home />} />
+
+      </Routes>
+    </>
+  )
+};
+
+export default App;
