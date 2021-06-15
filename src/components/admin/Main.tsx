@@ -10,12 +10,12 @@ import { useForm } from 'react-hook-form';
 const Main = ({ users, searchName }: any) => {
   const [allUsers, setAllUsers] = useState(users);
   const [children, setChildren] = useState([]);
-  const [foundStudentsBySearch, setFoundStudentsBySearch] = useState([]);
+  const [searchedStudents, setSearchedStudents] = useState([]);
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit } = useForm();
 
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     setLoading(true);
     if (!data.to) {
 
@@ -23,31 +23,53 @@ const Main = ({ users, searchName }: any) => {
       const to = new Date(data.from).setHours(23, 59, 59, 59);
 
       console.log("FROM", from, "TO", to);
-      Axios({
-        method: "POST",
-        url: "https://ahlulquran.herokuapp.com/admin/search",
-        data: { from: from, to: to }
-      }).then((resp) => {
-        console.log(resp.data);
-        setFoundStudentsBySearch(resp.data);
-        setLoading(false);
-      }).catch(err => console.log(err))
+
+      const resp = await Axios.post("https://ahlulquran.herokuapp.com/admin/search", { from: from, to: to });
+      if (resp.data.length <= 0) {
+
+        console.log("NOTHING")
+        setLoading(false)
+        return;
+      }
+      console.log(resp)
+      setAllUsers(resp.data)
+      setLoading(false);
+      // Axios({
+      //   method: "POST",
+      //   url: "https://ahlulquran.herokuapp.com/admin/search",
+      //   data: { from: from, to: to }
+      // }).then((resp) => {
+      //   console.log(resp.data);
+      //   setSearchedStudents(resp.data);
+      //   setAllUsers(searchedStudents)
+      //   setLoading(false);
+      // }).catch(err => console.log(err))
 
     } else {
       const from = new Date(data.from).setHours(0, 0, 0, 0)
       const to = new Date(data.to).setHours(23, 59, 59, 59)
 
       console.log("FROM", from, "TO", to);
-      Axios({
-        method: "POST",
-        url: "https://ahlulquran.herokuapp.com/admin/search",
-        data: { from: from, to: to }
-      }).then((resp) => {
-        
-        console.log(resp.data);
-        setFoundStudentsBySearch(resp.data);
-        setLoading(false);
-      }).catch(err => console.log(err))
+      const resp = await Axios.post("https://ahlulquran.herokuapp.com/admin/search", { from: from, to: to });
+      if (resp.data.length <= 0) {
+        console.log("NOTHING")
+        setLoading(false)
+        return;
+      }
+      console.log(resp)
+      setAllUsers(resp.data);
+      setLoading(false);
+      // Axios({
+      //   method: "POST",
+      //   url: "https://ahlulquran.herokuapp.com/admin/search",
+      //   data: { from: from, to: to }
+      // }).then((resp) => {
+
+      //   console.log(resp.data);
+      //   setSearchedStudents(resp.data);
+      //   setAllUsers(searchedStudents)
+      //   setLoading(false);
+      // }).catch(err => console.log(err))
     }
 
   }
@@ -103,7 +125,7 @@ const Main = ({ users, searchName }: any) => {
     <main className='col-md-9 ms-sm-auto col-lg-10 px-md-4'>
       <div className='d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom'>
         <h1 className='h2'>Dashboard</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="mr-5">
           <div className="row">
             <div className="col">
               <input type="date" className="form-control" placeholder="From" {...register("from", { required: true })} />
@@ -115,9 +137,12 @@ const Main = ({ users, searchName }: any) => {
           </div>
         </form>
 
+      </div>
+      <div className="d-flex justify-content-between align-items-center py-3">
+        <h2>Registered People :   <span style={{fontSize:'1.5rem'}}>{allUsers.length}</span></h2>
+        <button className="btn btn-primary mr-4" onClick={() => setAllUsers(users)}>Reset</button>
 
       </div>
-      <h2>Registered People</h2>
       <div className='table-responsive'>
         {
           loading ? (
@@ -140,8 +165,8 @@ const Main = ({ users, searchName }: any) => {
                 </tr>
               </thead>
               <tbody>
-                {users !== undefined ?
-                  users.filter((u: any) => u.name.includes(searchName)).map((user: any, idx: any) => (
+                {allUsers !== undefined ?
+                  allUsers.filter((u: any) => u.name.includes(searchName)).map((user: any, idx: any) => (
                     <tr key={idx}>
                       <td>{idx}</td>
                       <td>{user.name}</td>
