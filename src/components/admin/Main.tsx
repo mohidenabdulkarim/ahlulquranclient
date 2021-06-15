@@ -11,11 +11,12 @@ const Main = ({ users, searchName }: any) => {
   const [allUsers, setAllUsers] = useState(users);
   const [children, setChildren] = useState([]);
   const [foundStudentsBySearch, setFoundStudentsBySearch] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { register, handleSubmit } = useForm();
 
 
   const onSubmit = (data: any) => {
-
+    setLoading(true);
     if (!data.to) {
 
       const from = new Date(data.from).setHours(0, 0, 0, 0);
@@ -28,6 +29,8 @@ const Main = ({ users, searchName }: any) => {
         data: { from: from, to: to }
       }).then((resp) => {
         console.log(resp.data);
+        setFoundStudentsBySearch(resp.data);
+        setLoading(false);
       }).catch(err => console.log(err))
 
     } else {
@@ -40,7 +43,10 @@ const Main = ({ users, searchName }: any) => {
         url: "https://ahlulquran.herokuapp.com/admin/search",
         data: { from: from, to: to }
       }).then((resp) => {
+        
         console.log(resp.data);
+        setFoundStudentsBySearch(resp.data);
+        setLoading(false);
       }).catch(err => console.log(err))
     }
 
@@ -113,110 +119,113 @@ const Main = ({ users, searchName }: any) => {
       </div>
       <h2>Registered People</h2>
       <div className='table-responsive'>
-        <table className='table table-striped table-sm'>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>phone</th>
-              <th>Whatsapp No</th>
-              <th>Country</th>
-              <th>Gender</th>
-              <th>Date</th>
-              <th>Teacher</th>
-              <th>Course</th>
-              <th>Serial Number</th>
-              <th>Children</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users !== undefined ?
-              users.filter((u: any) => u.name.includes(searchName)).map((user: any, idx: any) => (
-                <tr key={idx}>
-                  <td>{idx}</td>
-                  <td>{user.name}</td>
-                  <td>{user.contactNumber}</td>
-                  <td>{user.whatsappNumber}</td>
-                  <td>{user.country}</td>
-                  <td>{user.gender}</td>
-                  <td>{new Date(user.registeredDate).toLocaleDateString()}</td>
-                  <td>{user.teacher}</td>
-                  <td>{user.course}</td>
-                  <td>
-                    {
-                      user.serialNumber ?
-                        user.serialNumber
-                        : (
-                          <>
-                            <SiAddthis style={{ color: "green", fontSize: "2rem", cursor: 'pointer' }} onClick={() => addSerialNumber(user._id)} />
-                          </>
-                        )
-                    }
-                  </td>
-                  <td>
-                    {
-                      user.children.length > 0 ?
-                        (
-                          <>
-                            <button className="btn btn-danger" onClick={() => showChildrens(user.children)} data-toggle="modal" data-target="#exampleModal">Show</button>
-                            <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div className="modal-dialog" role="document">
-                                <div className="modal-content">
-                                  <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Children</h5>
-                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">×</span>
-                                    </button>
-                                  </div>
-                                  <div className="modal-body">
-                                    <table className="table">
-                                      <thead>
-                                        <tr>
-                                          <th scope="col">#</th>
-                                          <th scope="col">Fname</th>
-                                          <th scope="col">Lname</th>
-                                          <th scope="col">Age</th>
-                                          <th scope="col">Nationality</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        {
-                                          children.map((child: any, idx: any) => (
-                                            <tr key={idx}>
-                                              <td>{idx + 1}</td>
-                                              <td>{child["forename" + idx]}</td>
-                                              <td>{child["surname" + idx]}</td>
-                                              <td>{child["age" + idx]}</td>
-                                              <td>{child["nationalty" + idx]}</td>
-
+        {
+          loading ? (
+            <h1>Loading....</h1>
+          ) :
+            <table className='table table-striped table-sm'>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>phone</th>
+                  <th>Whatsapp No</th>
+                  <th>Country</th>
+                  <th>Gender</th>
+                  <th>Date</th>
+                  <th>Teacher</th>
+                  <th>Course</th>
+                  <th>Serial Number</th>
+                  <th>Children</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users !== undefined ?
+                  users.filter((u: any) => u.name.includes(searchName)).map((user: any, idx: any) => (
+                    <tr key={idx}>
+                      <td>{idx}</td>
+                      <td>{user.name}</td>
+                      <td>{user.contactNumber}</td>
+                      <td>{user.whatsappNumber}</td>
+                      <td>{user.country}</td>
+                      <td>{user.gender}</td>
+                      <td>{new Date(user.registeredDate).toLocaleDateString()}</td>
+                      <td>{user.teacher}</td>
+                      <td>{user.course}</td>
+                      <td>
+                        {
+                          user.serialNumber ?
+                            user.serialNumber
+                            : (
+                              <>
+                                <SiAddthis style={{ color: "green", fontSize: "2rem", cursor: 'pointer' }} onClick={() => addSerialNumber(user._id)} />
+                              </>
+                            )
+                        }
+                      </td>
+                      <td>
+                        {
+                          user.children.length > 0 ?
+                            (
+                              <>
+                                <button className="btn btn-danger" onClick={() => showChildrens(user.children)} data-toggle="modal" data-target="#exampleModal">Show</button>
+                                <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div className="modal-dialog" role="document">
+                                    <div className="modal-content">
+                                      <div className="modal-header">
+                                        <h5 className="modal-title" id="exampleModalLabel">Children</h5>
+                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">×</span>
+                                        </button>
+                                      </div>
+                                      <div className="modal-body">
+                                        <table className="table">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">#</th>
+                                              <th scope="col">Fname</th>
+                                              <th scope="col">Lname</th>
+                                              <th scope="col">Age</th>
+                                              <th scope="col">Nationality</th>
                                             </tr>
-                                          ))
-                                        }
+                                          </thead>
+                                          <tbody>
+                                            {
+                                              children.map((child: any, idx: any) => (
+                                                <tr key={idx}>
+                                                  <td>{idx + 1}</td>
+                                                  <td>{child["forename" + idx]}</td>
+                                                  <td>{child["surname" + idx]}</td>
+                                                  <td>{child["age" + idx]}</td>
+                                                  <td>{child["nationalty" + idx]}</td>
 
-                                      </tbody>
-                                    </table>
-
-                                  </div>
-                                  <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </tr>
+                                              ))
+                                            }
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                          </>
-
-                        ) : "no children"
-                    }
-                  </td>
-                </tr>
+                              </>
+                            ) : "no children"
+                        }
+                      </td>
+                    </tr>
 
 
-              ))
-              :
-              <h5>No users registered yet !!</h5>
-            }
-          </tbody>
-        </table>
+                  ))
+                  :
+                  <h5>No users registered yet !!</h5>
+                }
+              </tbody>
+            </table>
+        }
+
       </div>
 
 
