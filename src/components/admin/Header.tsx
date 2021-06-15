@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ clearCookie }: any) => {
+const Header = ({ clearCookie, searchName, setSearchName }: any) => {
   return (
     <header className='navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow'>
       <a className='navbar-brand col-md-3 col-lg-2 me-0 px-3' href='#'>
@@ -22,6 +22,8 @@ const Header = ({ clearCookie }: any) => {
         type='text'
         placeholder='Search'
         aria-label='Search'
+        value={searchName}
+        onChange={(e) => setSearchName(e.target.value)}
       />
       <ul className='navbar-nav px-3'>
         <li className='nav-item text-nowrap'>

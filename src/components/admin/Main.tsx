@@ -7,11 +7,43 @@ import { useForm } from 'react-hook-form';
 
 
 
-const Main = ({ users }: any) => {
+const Main = ({ users, searchName }: any) => {
   const [allUsers, setAllUsers] = useState(users);
   const [children, setChildren] = useState([]);
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+
+
+  const onSubmit = (data: any) => {
+
+    if (!data.to) {
+
+      const from = new Date(data.from).setHours(0, 0, 0, 0);
+      const to = new Date(data.from).setHours(23, 59, 59, 59);
+
+      console.log("FROM", from, "TO", to);
+      Axios({
+        method: "POST",
+        url: "https://ahlulquran.herokuapp.com/admin/search",
+        data: { from: from, to: to }
+      }).then((resp) => {
+        console.log(resp);
+      }).catch(err => console.log(err))
+
+    } else {
+      const from = new Date(data.from).setHours(0, 0, 0, 0)
+      const to = new Date(data.to).setHours(23, 59, 59, 59)
+
+      console.log("FROM", from, "TO", to);
+      Axios({
+        method: "POST",
+        url: "https://ahlulquran.herokuapp.com/admin/search",
+        data: { from: from, to: to }
+      }).then((resp) => {
+        console.log(resp);
+      }).catch(err => console.log(err))
+    }
+
+  }
 
   const addSerialNumber = (id: any) => {
     console.log(id);
@@ -67,10 +99,10 @@ const Main = ({ users }: any) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row">
             <div className="col">
-              <input type="date" className="form-control" placeholder="From" />
+              <input type="date" className="form-control" placeholder="From" {...register("from", { required: true })} />
             </div>
             <div className="col">
-              <input type="date" className="form-control" placeholder="To" />
+              <input type="date" className="form-control" placeholder="To" {...register("to")} />
             </div>
             <button type="submit" className="btn btn-primary">Search</button>
           </div>
@@ -98,7 +130,7 @@ const Main = ({ users }: any) => {
           </thead>
           <tbody>
             {users !== undefined ?
-              users.map((user: any, idx: any) => (
+              users.filter((u: any) => u.name.includes(searchName)).map((user: any, idx: any) => (
                 <tr key={idx}>
                   <td>{idx}</td>
                   <td>{user.name}</td>
@@ -106,7 +138,7 @@ const Main = ({ users }: any) => {
                   <td>{user.whatsappNumber}</td>
                   <td>{user.country}</td>
                   <td>{user.gender}</td>
-                  <td>{user.registeredDate}</td>
+                  <td>{new Date(user.registeredDate).toLocaleDateString()}</td>
                   <td>{user.teacher}</td>
                   <td>{user.course}</td>
                   <td>

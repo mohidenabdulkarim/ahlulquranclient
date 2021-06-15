@@ -14,6 +14,7 @@ export const Dashboard = () => {
   const [auth, setAuth] = useState(true);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchName, setSearchName] = useState("");
 
 
   const fetchUsers = async () => {
@@ -51,11 +52,11 @@ export const Dashboard = () => {
   if (auth) {
     return (
       loading ? <h1>Loading ....</h1> : <>
-        <Header clearCookie={clearCookie} />
+        <Header clearCookie={clearCookie} searchName={searchName} setSearchName={setSearchName} />
         <div className='container-fluid'>
           <div className='row'>
             <SideBar />
-            <Main users={users} />
+            <Main users={users} searchName={searchName} setSearchName={setSearchName} />
           </div>
         </div>
       </>
@@ -67,7 +68,7 @@ export const Dashboard = () => {
       icon: 'error',
       confirmButtonText: 'OK'
     }).then(res => {
-      if(res.isConfirmed) {
+      if (res.isConfirmed) {
         window.location.replace("/");
       }
     });
