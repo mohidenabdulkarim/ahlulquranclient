@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 const Main = ({ users, searchName }: any) => {
   const [allUsers, setAllUsers] = useState(users);
   const [children, setChildren] = useState([]);
+  const [foundStudentsBySearch, setFoundStudentsBySearch] = useState([]);
   const { register, handleSubmit } = useForm();
 
 
@@ -26,7 +27,7 @@ const Main = ({ users, searchName }: any) => {
         url: "https://ahlulquran.herokuapp.com/admin/search",
         data: { from: from, to: to }
       }).then((resp) => {
-        console.log(resp);
+        console.log(resp.data);
       }).catch(err => console.log(err))
 
     } else {
@@ -39,7 +40,7 @@ const Main = ({ users, searchName }: any) => {
         url: "https://ahlulquran.herokuapp.com/admin/search",
         data: { from: from, to: to }
       }).then((resp) => {
-        console.log(resp);
+        console.log(resp.data);
       }).catch(err => console.log(err))
     }
 
