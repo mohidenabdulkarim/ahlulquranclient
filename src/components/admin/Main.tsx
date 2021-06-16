@@ -12,7 +12,9 @@ const Main = ({ users, searchName }: any) => {
   const [children, setChildren] = useState([]);
   const [searchedStudents, setSearchedStudents] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [notFound, setNotFound] = useState(false);
   const { register, handleSubmit } = useForm();
+
 
 
   const onSubmit = async (data: any) => {
@@ -29,11 +31,14 @@ const Main = ({ users, searchName }: any) => {
 
         console.log("NOTHING")
         setLoading(false)
+        setAllUsers(resp.data);
+        setNotFound(true);
         return;
       }
       console.log(resp)
       setAllUsers(resp.data)
       setLoading(false);
+      setNotFound(false);
       // Axios({
       //   method: "POST",
       //   url: "https://ahlulquran.herokuapp.com/admin/search",
@@ -54,11 +59,14 @@ const Main = ({ users, searchName }: any) => {
       if (resp.data.length <= 0) {
         console.log("NOTHING")
         setLoading(false)
+        setAllUsers(resp.data);
+        setNotFound(true);
         return;
       }
       console.log(resp)
       setAllUsers(resp.data);
       setLoading(false);
+      setNotFound(false);
       // Axios({
       //   method: "POST",
       //   url: "https://ahlulquran.herokuapp.com/admin/search",
@@ -139,8 +147,11 @@ const Main = ({ users, searchName }: any) => {
 
       </div>
       <div className="d-flex justify-content-between align-items-center py-3">
-        <h2>Registered People :   <span style={{fontSize:'1.5rem'}}>{allUsers.length}</span></h2>
-        <button className="btn btn-primary mr-4" onClick={() => setAllUsers(users)}>Reset</button>
+        <h2>Registered People :   <span style={{ fontSize: '1.5rem' }}>{allUsers.length}</span></h2>
+        <button className="btn btn-primary mr-4" onClick={() => {
+          setAllUsers(users)
+          setNotFound(false);
+        }}>Reset</button>
 
       </div>
       <div className='table-responsive'>
@@ -148,107 +159,110 @@ const Main = ({ users, searchName }: any) => {
           loading ? (
             <h1>Loading....</h1>
           ) :
-            <table className='table table-striped table-sm'>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>phone</th>
-                  <th>Whatsapp No</th>
-                  <th>Country</th>
-                  <th>Gender</th>
-                  <th>Date</th>
-                  <th>Teacher</th>
-                  <th>Course</th>
-                  <th>Serial Number</th>
-                  <th>Children</th>
-                </tr>
-              </thead>
-              <tbody>
-                {allUsers !== undefined ?
-                  allUsers.filter((u: any) => u.name.includes(searchName)).map((user: any, idx: any) => (
-                    <tr key={idx}>
-                      <td>{idx}</td>
-                      <td>{user.name}</td>
-                      <td>{user.contactNumber}</td>
-                      <td>{user.whatsappNumber}</td>
-                      <td>{user.country}</td>
-                      <td>{user.gender}</td>
-                      <td>{new Date(user.registeredDate).toLocaleDateString()}</td>
-                      <td>{user.teacher}</td>
-                      <td>{user.course}</td>
-                      <td>
-                        {
-                          user.serialNumber ?
-                            user.serialNumber
-                            : (
-                              <>
-                                <SiAddthis style={{ color: "green", fontSize: "2rem", cursor: 'pointer' }} onClick={() => addSerialNumber(user._id)} />
-                              </>
-                            )
-                        }
-                      </td>
-                      <td>
-                        {
-                          user.children.length > 0 ?
-                            (
-                              <>
-                                <button className="btn btn-danger" onClick={() => showChildrens(user.children)} data-toggle="modal" data-target="#exampleModal">Show</button>
-                                <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  <div className="modal-dialog" role="document">
-                                    <div className="modal-content">
-                                      <div className="modal-header">
-                                        <h5 className="modal-title" id="exampleModalLabel">Children</h5>
-                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">×</span>
-                                        </button>
-                                      </div>
-                                      <div className="modal-body">
-                                        <table className="table">
-                                          <thead>
-                                            <tr>
-                                              <th scope="col">#</th>
-                                              <th scope="col">Fname</th>
-                                              <th scope="col">Lname</th>
-                                              <th scope="col">Age</th>
-                                              <th scope="col">Nationality</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            {
-                                              children.map((child: any, idx: any) => (
-                                                <tr key={idx}>
-                                                  <td>{idx + 1}</td>
-                                                  <td>{child["forename" + idx]}</td>
-                                                  <td>{child["surname" + idx]}</td>
-                                                  <td>{child["age" + idx]}</td>
-                                                  <td>{child["nationalty" + idx]}</td>
+            notFound ? (
+              <h5>Nothing found on that date</h5>
+            ) :
+              <table className='table table-striped table-sm'>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>phone</th>
+                    <th>Whatsapp No</th>
+                    <th>Country</th>
+                    <th>Gender</th>
+                    <th>Date</th>
+                    <th>Teacher</th>
+                    <th>Course</th>
+                    <th>Serial Number</th>
+                    <th>Children</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {allUsers !== undefined ?
+                    allUsers.filter((u: any) => u.name.includes(searchName)).map((user: any, idx: any) => (
+                      <tr key={idx}>
+                        <td>{idx}</td>
+                        <td>{user.name}</td>
+                        <td>{user.contactNumber}</td>
+                        <td>{user.whatsappNumber}</td>
+                        <td>{user.country}</td>
+                        <td>{user.gender}</td>
+                        <td>{new Date(user.registeredDate).toLocaleDateString()}</td>
+                        <td>{user.teacher}</td>
+                        <td>{user.course}</td>
+                        <td>
+                          {
+                            user.serialNumber ?
+                              user.serialNumber
+                              : (
+                                <>
+                                  <SiAddthis style={{ color: "green", fontSize: "2rem", cursor: 'pointer' }} onClick={() => addSerialNumber(user._id)} />
+                                </>
+                              )
+                          }
+                        </td>
+                        <td>
+                          {
+                            user.children.length > 0 ?
+                              (
+                                <>
+                                  <button className="btn btn-danger" onClick={() => showChildrens(user.children)} data-toggle="modal" data-target="#exampleModal">Show</button>
+                                  <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div className="modal-dialog" role="document">
+                                      <div className="modal-content">
+                                        <div className="modal-header">
+                                          <h5 className="modal-title" id="exampleModalLabel">Children</h5>
+                                          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                          </button>
+                                        </div>
+                                        <div className="modal-body">
+                                          <table className="table">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Fname</th>
+                                                <th scope="col">Lname</th>
+                                                <th scope="col">Age</th>
+                                                <th scope="col">Nationality</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              {
+                                                children.map((child: any, idx: any) => (
+                                                  <tr key={idx}>
+                                                    <td>{idx + 1}</td>
+                                                    <td>{child["forename" + idx]}</td>
+                                                    <td>{child["surname" + idx]}</td>
+                                                    <td>{child["age" + idx]}</td>
+                                                    <td>{child["nationalty" + idx]}</td>
 
-                                                </tr>
-                                              ))
-                                            }
-                                          </tbody>
-                                        </table>
-                                      </div>
-                                      <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                  </tr>
+                                                ))
+                                              }
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                        <div className="modal-footer">
+                                          <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
-                                </div>
-                              </>
-                            ) : "no children"
-                        }
-                      </td>
-                    </tr>
+                                </>
+                              ) : "no children"
+                          }
+                        </td>
+                      </tr>
 
 
-                  ))
-                  :
-                  <h5>No users registered yet !!</h5>
-                }
-              </tbody>
-            </table>
+                    ))
+                    :
+                    <h5>No users registered yet !!</h5>
+                  }
+                </tbody>
+              </table>
         }
 
       </div>
