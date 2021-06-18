@@ -21,7 +21,7 @@ const ContactFormModel = () => {
                 backgroundImage: "url(assets/images/resources/slider-01.jpg)",
               }}
             >
-              <div className='featured-cap'>
+              <div className='featured-cap' style={{opacity:'0'}}>
                 <img
                   src='assets/images/resources/bsml-txt.png'
                   alt='bsml-txt.png'
@@ -46,7 +46,7 @@ const ContactFormModel = () => {
                 backgroundImage: "url(assets/images/resources/slider-02.jpg)",
               }}
             >
-              <div className='featured-cap'>
+              <div className='featured-cap' style={{opacity:'0'}}>
                 <img
                   src='assets/images/resources/bsml-txt2.png'
                   alt='bsml-txt2.png'
@@ -71,7 +71,7 @@ const ContactFormModel = () => {
                 backgroundImage: "url(assets/images/resources/slider-03.jpg)",
               }}
             >
-              <div className='featured-cap'>
+              <div className='featured-cap' style={{opacity:'0'}}>
                 <img
                   src='assets/images/resources/bsml-txt.png'
                   alt='bsml-txt.png'
@@ -93,10 +93,10 @@ const ContactFormModel = () => {
             <div
               className='featured-item style2'
               style={{
-                backgroundImage: "url(assets/images/resources/slide2-4.jpg)",
+                backgroundImage: "url(assets/images/resources/slider-01.jpg)",
               }}
             >
-              <div className='featured-cap'>
+              <div className='featured-cap' style={{opacity:'0'}}>
                 <img
                   src='assets/images/resources/bsml-txt2.png'
                   alt='bsml-txt2.png'

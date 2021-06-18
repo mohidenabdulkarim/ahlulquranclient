@@ -44,12 +44,12 @@ const OurScholars = () => {
                       alt='team-img2-1.jpg'
                     />
                     <div className='team-info2'>
-                      <h4>AL Zahra</h4>
-                      <p>
+                      <h4>Sh. Abdisalam Sh. Ali sufi</h4>
+                      {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor
-                    </p>
-                      <div className='team-scl'>
+                      </p> */}
+                      {/* <div className='team-scl'>
                         <a href='#' title='Twitter' target='_blank'>
                           <i className='fa fa-twitter' />
                         </a>
@@ -62,7 +62,7 @@ const OurScholars = () => {
                         <a href='#' title='Facebook' target='_blank'>
                           <i className='fa fa-facebook' />
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </SwiperSlide>
@@ -73,12 +73,12 @@ const OurScholars = () => {
                       alt='team-img2-2.jpg'
                     />
                     <div className='team-info2'>
-                      <h4>Umair</h4>
-                      <p>
+                      <h4>Sh. Abdikariim Al Alami</h4>
+                      {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor
-                    </p>
-                      <div className='team-scl'>
+                      </p> */}
+                      {/* <div className='team-scl'>
                         <a href='#' title='Twitter' target='_blank'>
                           <i className='fa fa-twitter' />
                         </a>
@@ -91,7 +91,7 @@ const OurScholars = () => {
                         <a href='#' title='Facebook' target='_blank'>
                           <i className='fa fa-facebook' />
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </SwiperSlide>
@@ -102,12 +102,12 @@ const OurScholars = () => {
                       alt='team-img2-3.jpg'
                     />
                     <div className='team-info2'>
-                      <h4>Fatima</h4>
-                      <p>
+                      <h4>Sh. Hasan Al waajidi</h4>
+                      {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor
-                    </p>
-                      <div className='team-scl'>
+                      </p> */}
+                      {/* <div className='team-scl'>
                         <a href='#' title='Twitter' target='_blank'>
                           <i className='fa fa-twitter' />
                         </a>
@@ -120,7 +120,7 @@ const OurScholars = () => {
                         <a href='#' title='Facebook' target='_blank'>
                           <i className='fa fa-facebook' />
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </SwiperSlide>
@@ -131,12 +131,12 @@ const OurScholars = () => {
                       alt='team-img2-4.jpg'
                     />
                     <div className='team-info2'>
-                      <h4>Ammara</h4>
-                      <p>
+                      <h4>Sh. Abas Abdinur</h4>
+                      {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor
-                    </p>
-                      <div className='team-scl'>
+                      </p> */}
+                      {/* <div className='team-scl'>
                         <a href='#' title='Twitter' target='_blank'>
                           <i className='fa fa-twitter' />
                         </a>
@@ -149,7 +149,7 @@ const OurScholars = () => {
                         <a href='#' title='Facebook' target='_blank'>
                           <i className='fa fa-facebook' />
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </SwiperSlide>
@@ -160,12 +160,12 @@ const OurScholars = () => {
                       alt='team-img2-4.jpg'
                     />
                     <div className='team-info2'>
-                      <h4>Ammara</h4>
-                      <p>
+                      <h4>Ustaad Ahmed Burhan</h4>
+                      {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor
-                    </p>
-                      <div className='team-scl'>
+                      </p> */}
+                      {/* <div className='team-scl'>
                         <a href='#' title='Twitter' target='_blank'>
                           <i className='fa fa-twitter' />
                         </a>
@@ -178,7 +178,7 @@ const OurScholars = () => {
                         <a href='#' title='Facebook' target='_blank'>
                           <i className='fa fa-facebook' />
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </SwiperSlide>
@@ -189,12 +189,12 @@ const OurScholars = () => {
                       alt='team-img2-4.jpg'
                     />
                     <div className='team-info2'>
-                      <h4>Ammara</h4>
-                      <p>
+                      <h4>Sh. Abdiqadir gutaale</h4>
+                      {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor
-                    </p>
-                      <div className='team-scl'>
+                      </p> */}
+                      {/* <div className='team-scl'>
                         <a href='#' title='Twitter' target='_blank'>
                           <i className='fa fa-twitter' />
                         </a>
@@ -207,7 +207,7 @@ const OurScholars = () => {
                         <a href='#' title='Facebook' target='_blank'>
                           <i className='fa fa-facebook' />
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </SwiperSlide>
@@ -218,12 +218,12 @@ const OurScholars = () => {
                       alt='team-img2-4.jpg'
                     />
                     <div className='team-info2'>
-                      <h4>Ammara</h4>
-                      <p>
+                      <h4>Sh. Abdinasir Mohamed</h4>
+                      {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor
-                    </p>
-                      <div className='team-scl'>
+                      </p> */}
+                      {/* <div className='team-scl'>
                         <a href='#' title='Twitter' target='_blank'>
                           <i className='fa fa-twitter' />
                         </a>
@@ -236,7 +236,7 @@ const OurScholars = () => {
                         <a href='#' title='Facebook' target='_blank'>
                           <i className='fa fa-facebook' />
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </SwiperSlide>
@@ -247,12 +247,12 @@ const OurScholars = () => {
                       alt='team-img2-4.jpg'
                     />
                     <div className='team-info2'>
-                      <h4>Ammara</h4>
-                      <p>
+                      <h4>Sh. Jamal Abdinasir</h4>
+                      {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor
-                    </p>
-                      <div className='team-scl'>
+                      </p> */}
+                      {/* <div className='team-scl'>
                         <a href='#' title='Twitter' target='_blank'>
                           <i className='fa fa-twitter' />
                         </a>
@@ -265,7 +265,7 @@ const OurScholars = () => {
                         <a href='#' title='Facebook' target='_blank'>
                           <i className='fa fa-facebook' />
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </SwiperSlide>
@@ -276,12 +276,12 @@ const OurScholars = () => {
                       alt='team-img2-4.jpg'
                     />
                     <div className='team-info2'>
-                      <h4>Ammara</h4>
-                      <p>
+                      <h4>Sh. Ibrahim Abdisamad</h4>
+                      {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor
-                    </p>
-                      <div className='team-scl'>
+                      </p> */}
+                      {/* <div className='team-scl'>
                         <a href='#' title='Twitter' target='_blank'>
                           <i className='fa fa-twitter' />
                         </a>
@@ -294,7 +294,7 @@ const OurScholars = () => {
                         <a href='#' title='Facebook' target='_blank'>
                           <i className='fa fa-facebook' />
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </SwiperSlide>
@@ -305,12 +305,12 @@ const OurScholars = () => {
                       alt='team-img2-4.jpg'
                     />
                     <div className='team-info2'>
-                      <h4>Ammara</h4>
-                      <p>
+                      <h4>Sh. Yahye Raabi</h4>
+                      {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor
-                    </p>
-                      <div className='team-scl'>
+                      </p> */}
+                      {/* <div className='team-scl'>
                         <a href='#' title='Twitter' target='_blank'>
                           <i className='fa fa-twitter' />
                         </a>
@@ -323,7 +323,36 @@ const OurScholars = () => {
                         <a href='#' title='Facebook' target='_blank'>
                           <i className='fa fa-facebook' />
                         </a>
-                      </div>
+                      </div> */}
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='col-md-3 col-sm-6 col-lg-3'>
+                  <div className='team-box2'>
+                    <img
+                      src='assets/images/resources/10.png'
+                      alt='team-img2-4.jpg'
+                    />
+                    <div className='team-info2'>
+                      <h4>Sh. Abdirazaq Sh Abdi ali</h4>
+                      {/* <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor
+                      </p> */}
+                      {/* <div className='team-scl'>
+                        <a href='#' title='Twitter' target='_blank'>
+                          <i className='fa fa-twitter' />
+                        </a>
+                        <a href='#' title='Pinterest' target='_blank'>
+                          <i className='fa fa-pinterest-p' />
+                        </a>
+                        <a href='#' title='Google Plus' target='_blank'>
+                          <i className='fa fa-google-plus' />
+                        </a>
+                        <a href='#' title='Facebook' target='_blank'>
+                          <i className='fa fa-facebook' />
+                        </a>
+                      </div> */}
                     </div>
                   </div>
                 </SwiperSlide>
