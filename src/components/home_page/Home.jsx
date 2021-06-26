@@ -22,7 +22,7 @@ const Home = () => {
       <WhatWeDo />
       <Contactus />
       <Footer />
-      <WhatsAppWidget phoneNumber='252633749923' />
+      <WhatsAppWidget phoneNumber='442039834610' />
     </>
   );
 };

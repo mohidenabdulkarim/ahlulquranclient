@@ -12,7 +12,7 @@ const Footer = () => {
           />
           <div
             className='fixed-bg'
-            style={{ backgroundImage: "url(assets/images/pattern-bg.jpg)", backgroundSize:'initial' }}
+            style={{ backgroundImage: "url(assets/images/pattern-bg.jpg)", backgroundSize: 'initial' }}
           ></div>
           <div className='container'>
             <div className='nwsltr-wrp text-center'>
@@ -39,7 +39,7 @@ const Footer = () => {
                 <div className='col-md-4 col-sm-12 col-lg-4'>
                   <div className='wdgt-box'>
                     <div className='logo'>
-                      <h1 style={{color:'white'}}>Ahlul Quran</h1>
+                      <h1 style={{ color: 'white' }}>Ahlul Quran</h1>
                     </div>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -118,7 +118,7 @@ const Footer = () => {
                           <li>
                             <i className='flaticon-email'></i>
                             <a href='#' title=''>
-                              ilamic@dummy.com
+                              ahluquranacademy@gmail.com
                             </a>
                           </li>
                         </ul>

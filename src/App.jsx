@@ -8,7 +8,7 @@ const App = () => {
   return (
 
     <>
-      <WhatsAppWidget phoneNumber='XXXXXXXX' />
+      {/* <WhatsAppWidget phoneNumber='+442039834610' /> */}
       <Routes>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/login' element={<Login />} />

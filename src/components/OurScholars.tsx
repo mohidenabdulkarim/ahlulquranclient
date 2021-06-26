@@ -330,7 +330,7 @@ const OurScholars = () => {
                 <SwiperSlide className='col-md-3 col-sm-6 col-lg-3'>
                   <div className='team-box2'>
                     <img
-                      src='assets/images/resources/10.png'
+                      src='assets/images/resources/sheekh.jpg'
                       alt='team-img2-4.jpg'
                     />
                     <div className='team-info2'>
