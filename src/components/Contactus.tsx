@@ -19,7 +19,7 @@ const Contactus = () => {
                     <i className='flaticon-location-pin' />
                     <strong>Our Location</strong>
                     <span>(800) 123 456 789 / (800) 123 456 789</span>
-                    <a href='#'>info@example.com</a>
+                    <a href='#'>ahluquranacademy@gmail.com</a>
                   </div>
                 </div>
                 <div className='col-md-4 col-sm-6 col-lg-4'>

@@ -42,16 +42,15 @@ const Footer = () => {
                       <h1 style={{ color: 'white' }}>Ahlul Quran</h1>
                     </div>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
+                      The Ahlul Qur’an Academy is an online academy that has been established for the learning of the Qur’an aswell as Islamic Studies!
+                      Students will be able to embark upon the different sciences of the Quran like its Tajweed, Qiraat and Tafsir.
                     </p>
                   </div>
                 </div>
                 <div className='col-md-8 col-sm-12 col-lg-8'>
                   <div className='row'>
                     <div className='col-md-4 col-sm-4 col-lg-4'>
-                      <div className='wdgt-box style2'>
+                      {/* <div className='wdgt-box style2'>
                         <h4>Quick Links</h4>
                         <ul>
                           <li>
@@ -75,10 +74,10 @@ const Footer = () => {
                             </a>
                           </li>
                         </ul>
-                      </div>
+                      </div> */}
                     </div>
                     <div className='col-md-4 col-sm-4 col-lg-4'>
-                      <div className='wdgt-box style2'>
+                      {/* <div className='wdgt-box style2'>
                         <h4>Useful Links</h4>
                         <ul>
                           <li>
@@ -102,7 +101,7 @@ const Footer = () => {
                             </a>
                           </li>
                         </ul>
-                      </div>
+                      </div> */}
                     </div>
                     <div className='col-md-4 col-sm-4 col-lg-4'>
                       <div className='wdgt-box style2'>
@@ -129,7 +128,7 @@ const Footer = () => {
               </div>
             </div>
             <div className='bottom-bar'>
-              <p>&copy; Copyright 2020. All Rights Reserved.</p>
+              <p>&copy; Copyright 2021. All Rights Reserved.</p>
               <div className='scl'>
                 <a href='#' title='Twitter' target='_blank'>
                   <i className='fa fa-twitter'></i>

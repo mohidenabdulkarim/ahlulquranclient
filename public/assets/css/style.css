@@ -4373,3 +4373,8 @@ html {
   background-color: #2A486C;
   color: white;
 }
+
+
+.team-box2 {
+  min-height: 313px !important;
+}

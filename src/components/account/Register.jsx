@@ -120,11 +120,13 @@ const Register = () => {
     }).catch(err => console.log(err))
 
     Swal.fire({
-      title: 'Good',
+      title: 'Thanks!',
       text: 'Your registeration was successfull',
       icon: 'success',
       confirmButtonText: 'OK'
-    });
+    }).then(confirm => {
+      if (confirm.isConfirmed) window.location.replace("/success")
+    })
     document.querySelector('.myform').reset();
   }
   return (
@@ -211,7 +213,7 @@ const Register = () => {
                   </div>
                   <label className='radio-container py-4 mt-4' >
                     Has Children
-                        <input type='checkbox' name='exist' {...register('hasChildren')} onClick={() => setHasChildren(!hasChildren)} />
+                    <input type='checkbox' name='exist' {...register('hasChildren')} onClick={() => setHasChildren(!hasChildren)} />
                     <span className='checkmark' />
                   </label>
                   <br />
@@ -360,32 +362,32 @@ const Register = () => {
                   <div className='p-t-15'>
                     <label className='radio-container mr-3'>
                       Somali Speaker
-                        <input type='radio' name='teacher' {...register('teacher')} value="somali speaker" />
+                      <input type='radio' name='teacher' {...register('teacher')} value="somali speaker" />
                       <span className='checkmark' />
                     </label>
                     <label className='radio-container mr-3'>
                       Arabic Speaker
-                        <input type='radio' name='teacher' {...register('teacher')} value="arabic speaker" />
+                      <input type='radio' name='teacher' {...register('teacher')} value="arabic speaker" />
                       <span className='checkmark' />
                     </label>
                     <label className='radio-container mr-3'>
                       English Speaker
-                        <input type='radio' name='teacher' {...register('teacher')} value="english speaker" />
+                      <input type='radio' name='teacher' {...register('teacher')} value="english speaker" />
                       <span className='checkmark' />
                     </label>
                     <label className='radio-container mr-3'>
                       Somali & Arabic
-                        <input type='radio' name='teacher' {...register('teacher')} value="somali and arabic" />
+                      <input type='radio' name='teacher' {...register('teacher')} value="somali and arabic" />
                       <span className='checkmark' />
                     </label>
                     <label className='radio-container mr-3'>
                       Somali & English
-                        <input type='radio' name='teacher' {...register('teacher')} value="somali and english" />
+                      <input type='radio' name='teacher' {...register('teacher')} value="somali and english" />
                       <span className='checkmark' />
                     </label>
                     <label className='radio-container mr-3'>
                       All Languages
-                        <input type='radio' name='teacher' {...register('teacher')} value="all languages" />
+                      <input type='radio' name='teacher' {...register('teacher')} value="all languages" />
                       <span className='checkmark' />
                     </label>
                   </div>
