@@ -1,3 +1,4 @@
+import react, { useState, useEffect } from 'react'
 import ContactFormModel from "../ContactFormModel";
 import Contactus from "../Contactus";
 import Footer from "../Footer";
@@ -9,22 +10,46 @@ import ResHeader from "../ResHeader";
 import WhatWeDo from "../WhatWeDo";
 import WhatsAppWidget from 'react-whatsapp-widget'
 import 'react-whatsapp-widget/dist/index.css'
+import { css } from "@emotion/react";
+import HashLoader from "react-spinners/HashLoader";
 
 const Home = () => {
-  return (
-    <>
-      <Header />
-      <ResHeader />
-      <HeaderSearch />
-      <ContactFormModel />
-      <OurHistory />
-      <OurScholars />
-      <WhatWeDo />
-      <Contactus />
-      <Footer />
-      <WhatsAppWidget phoneNumber='442039834610' />
-    </>
-  );
+  const [loading, setLoading] = useState(false);
+
+
+  useEffect(() => {
+    setLoading(true);
+
+    window.onload = () => {
+      setLoading(false);
+    }
+  }, [])
+
+  if (loading) {
+    return (
+      <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
+
+        <HashLoader color={"212529"} loading={loading} size={80} />
+      </div>
+    )
+  } else {
+
+    return (
+      <>
+        <Header />
+        <ResHeader />
+        <HeaderSearch />
+        <ContactFormModel />
+        <OurHistory />
+        <OurScholars />
+        <WhatWeDo />
+        <Contactus />
+        <Footer />
+        <WhatsAppWidget phoneNumber='442039834610' />
+      </>
+    );
+  }
+
 };
 
 export default Home;
