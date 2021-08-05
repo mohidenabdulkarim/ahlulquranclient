@@ -11,18 +11,18 @@ import WhatWeDo from "../WhatWeDo";
 import WhatsAppWidget from 'react-whatsapp-widget'
 import 'react-whatsapp-widget/dist/index.css'
 import { css } from "@emotion/react";
-import HashLoader from "react-spinners/HashLoader";
+import MoonLoader from "react-spinners/MoonLoader";
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
 
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(false);
 
     window.onload = () => {
-      setLoading(false);
+      setLoading(true);
     }
   }, [])
 
@@ -30,7 +30,7 @@ const Home = () => {
     return (
       <div className="min-vh-100 min-vw-100 d-flex align-items-center justify-content-center">
 
-        <HashLoader color={"212529"} loading={loading} size={80} />
+        <MoonLoader color={"#212529"} loading={loading} size={80} />
       </div>
     )
   } else {
