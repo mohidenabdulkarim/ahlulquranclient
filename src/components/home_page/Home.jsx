@@ -14,22 +14,30 @@ import { css } from "@emotion/react";
 import HashLoader from "react-spinners/HashLoader";
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const style = `
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  `;
 
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(false);
 
     window.onload = () => {
-      setLoading(false);
+      setLoading(true);
     }
   }, [])
 
   if (loading) {
     return (
-      <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
+      <div className="min-vh-100 min-vw-100 d-flex align-items-center justify-content-center">
 
-        <HashLoader color={"212529"} loading={loading} size={80} />
+        <HashLoader color={"212529"} loading={loading} size={80} css={style} />
       </div>
     )
   } else {
