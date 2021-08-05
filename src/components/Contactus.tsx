@@ -18,7 +18,7 @@ const Contactus = () => {
                   <div className='contact-info-box'>
                     <i className='flaticon-location-pin' />
                     <strong>Our Location</strong>
-                    <span>(800) 123 456 789 / (800) 123 456 789</span>
+                    <span> +22 33 4455 6677 /  +22 33 4455 6677</span>
                     <a href='#'>ahluquranacademy@gmail.com</a>
                   </div>
                 </div>
@@ -26,16 +26,16 @@ const Contactus = () => {
                   <div className='contact-info-box'>
                     <i className='flaticon-call' />
                     <strong>Contact us Anytime</strong>
-                    <span>Mobile: 012 345 678</span>
-                    <span>Fax: 123 456 789</span>
+                    <span>Mobile: +22 33 4455 6677</span>
+                    <span style={{ opacity: '0' }}>Fax: 123 456 789</span>
                   </div>
                 </div>
                 <div className='col-md-4 col-sm-6 col-lg-4'>
                   <div className='contact-info-box'>
                     <i className='flaticon-email' />
                     <strong>Write Some Words</strong>
-                    <a href='#'>Support24/7@example.com</a>
-                    <a href='#'>info@example.com</a>
+                    <a href='#'>ahluquranacademy@gmail.com</a>
+                    <a href='#' style={{ opacity: '0' }}>info@example.com</a>
                   </div>
                 </div>
               </div>

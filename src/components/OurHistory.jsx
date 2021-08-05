@@ -16,16 +16,16 @@ const OurHistory = () => {
                   />
                 </div>
               </div>
-              <div className='col-md-6 col-sm-12 col-lg-6'>
+              <div className='col-md-6 col-sm-12 col-lg-6' style={{marginTop:'-1.5rem'}}>
                 <div className='hstry-desc'>
                   {/* <span>A Few Words About Us</span> */}
                   <h2>About us</h2>
                   <p>
                     The Ahlul Qur’an Academy is an online academy that has been established for the learning of the Qur’an aswell as Islamic Studies!
-                    Students will be able to embark upon the different sciences of the Quran like its Tajweed, Qiraat and Tafsir.
-                    They can also learn about different  Tarbiyah subjects that will bring them closer to Allah.
-                    The Qur’ān instructors are highly qualified and from different parts of the world and the majority of them are students who have obtained certification from Sheikh Abdulrashid Sheikh Ali Sufi.
-                    Aswell as English speaking teachers who are renowned in Tarbiyah and mentorship.
+                    Students will be able to embark upon the different sciences of the Quran like its Tajweed, Qiraat and Tafsir. <br /><br />
+                    They can also learn about different  Tarbiyah subjects that will bring them closer to Allah. <br /><br />
+                    The Qur’ān instructors are highly qualified and from different parts of the world and the majority of them are students who have obtained certification from Sheikh Abdulrashid Sheikh Ali Sufi. <br /><br />
+                    Aswell as English speaking teachers who are renowned in Tarbiyah and mentorship. <br /><br />
                     The objective of this academy is to build a generation of students who attach themselves to Allah and His Messenger through the subjects they are studying.
                     Registration had started so get in touch via the information on your screen!
                   </p>

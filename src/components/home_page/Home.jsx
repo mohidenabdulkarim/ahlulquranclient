@@ -16,7 +16,7 @@ import HashLoader from "react-spinners/HashLoader";
 const Home = () => {
   const [loading, setLoading] = useState(false);
 
- 
+
 
   useEffect(() => {
     setLoading(true);
@@ -37,7 +37,7 @@ const Home = () => {
 
     return (
       <>
-        <Header />
+        {/* <Header /> */}
         <ResHeader />
         <HeaderSearch />
         <ContactFormModel />
