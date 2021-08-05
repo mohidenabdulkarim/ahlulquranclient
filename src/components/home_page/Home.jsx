@@ -14,15 +14,15 @@ import { css } from "@emotion/react";
 import MoonLoader from "react-spinners/MoonLoader";
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
 
 
   useEffect(() => {
-    setLoading(false);
+    setLoading(true);
 
     window.onload = () => {
-      setLoading(true);
+      setLoading(false);
     }
   }, [])
 
