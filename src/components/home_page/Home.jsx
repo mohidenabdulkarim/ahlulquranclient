@@ -30,7 +30,7 @@ const Home = () => {
     return (
       <div className="min-vh-100 min-vw-100 d-flex align-items-center justify-content-center">
 
-        <HashLoader color={"212529"} loading={loading} size={80} css={style} />
+        <HashLoader color={"212529"} loading={loading} size={80} />
       </div>
     )
   } else {
