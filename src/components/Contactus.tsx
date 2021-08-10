@@ -13,15 +13,15 @@ const Contactus = () => {
               </div>
             </div>
             <div className='contact-info-wrap text-center remove-ext3'>
-              <div className='row'>
-                <div className='col-md-4 col-sm-6 col-lg-4'>
+              <div className='row justify-content-center'>
+                {/* <div className='col-md-4 col-sm-6 col-lg-4'>
                   <div className='contact-info-box'>
                     <i className='flaticon-location-pin' />
                     <strong>Our Location</strong>
                     <span> +22 33 4455 6677 /  +22 33 4455 6677</span>
                     <a href='#'>ahluquranacademy@gmail.com</a>
                   </div>
-                </div>
+                </div> */}
                 <div className='col-md-4 col-sm-6 col-lg-4'>
                   <div className='contact-info-box'>
                     <i className='flaticon-call' />

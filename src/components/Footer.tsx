@@ -107,10 +107,10 @@ const Footer = () => {
                       <div className='wdgt-box style2'>
                         <h4>Contact Us</h4>
                         <ul className='cont-lst'>
-                          <li>
+                          {/* <li>
                             <i className='flaticon-location-pin'></i>Aorem Ipsum
                             labore et dolore magnam. SWIP 3HZ
-                          </li>
+                          </li> */}
                           <li>
                             <i className='flaticon-call'></i>+22 33 4455 6677
                           </li>

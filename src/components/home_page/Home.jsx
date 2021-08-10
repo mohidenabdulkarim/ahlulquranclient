@@ -20,7 +20,6 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-
     window.onload = () => {
       setLoading(false);
     }
