@@ -11,15 +11,15 @@ const OurHistory = () => {
               <div className='col-md-6 col-sm-12 col-lg-6'>
                 <div className='hstry-img text-center'>
                   <img
-                    src='assets/images/resources/about.jpg'
+                    src='assets/images/resources/about3.jpg'
                     alt='hstry-img.png'
                   />
                 </div>
               </div>
-              <div className='col-md-6 col-sm-12 col-lg-6' style={{marginTop:'-1.5rem'}}>
+              <div className='col-md-6 col-sm-12 col-lg-6' style={{ marginTop: '-1.5rem' }}>
                 <div className='hstry-desc'>
                   {/* <span>A Few Words About Us</span> */}
-                  <h2>About us</h2>
+                  {/* <h2>About us</h2> */}
                   <p>
                     The Ahlul Qur’an Academy is an online academy that has been established for the learning of the Qur’an aswell as Islamic Studies!
                     Students will be able to embark upon the different sciences of the Quran like its Tajweed, Qiraat and Tafsir. <br /><br />

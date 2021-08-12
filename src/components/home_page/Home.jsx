@@ -36,7 +36,7 @@ const Home = () => {
 
     return (
       <>
-        {/* <Header /> */}
+        <Header />
         <ResHeader />
         <HeaderSearch />
         <ContactFormModel />
