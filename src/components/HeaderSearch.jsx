@@ -20,9 +20,7 @@ const HeaderSearch = () => {
   const [error, setError] = useState(false);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-  const login = async () => {
 
-  }
   const onSubmit = async data => {
     setLoading(true);
     const body = {

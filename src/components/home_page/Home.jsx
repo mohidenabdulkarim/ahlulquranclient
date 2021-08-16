@@ -25,16 +25,17 @@ const Home = () => {
     }
   }, [])
 
-  if (loading) {
-    return (
-      <div className="min-vh-100 min-vw-100 d-flex align-items-center justify-content-center">
+  return (
 
-        <MoonLoader color={"#212529"} loading={loading} size={80} />
-      </div>
-    )
-  } else {
+    <>
+      {/* {
+        loading ? (
+          <div className="min-vh-100 min-vw-100 d-flex align-items-center justify-content-center" >
 
-    return (
+            <MoonLoader color={"#212529"} size={80} />
+          </div>
+        ) :
+          ( */}
       <>
         <Header />
         <ResHeader />
@@ -46,10 +47,22 @@ const Home = () => {
         <Contactus />
         <Footer />
         <WhatsAppWidget phoneNumber='442039834610' />
-      </>
-    );
-  }
 
-};
+      </>
+      )
+      {/* } */}
+    </>
+
+
+  );
+
+
+
+}
+
+
+
+
+
 
 export default Home;
